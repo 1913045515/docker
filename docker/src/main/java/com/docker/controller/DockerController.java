@@ -22,7 +22,7 @@ public class DockerController {
      * @return String
      */
     @ApiOperation(value="创建用户", notes="根据User对象创建用户")
-    @RequestMapping(value = "src/main/docker",method = RequestMethod.GET)
+    @RequestMapping(value = "docker",method = RequestMethod.GET)
     @ResponseBody
     public String dockerTest(@ApiParam(value = "用户名称") String name){
         return name+"：创建docker容器并且运行SpringBoot的jar成功。";
