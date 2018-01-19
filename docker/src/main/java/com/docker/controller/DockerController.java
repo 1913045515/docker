@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -24,7 +25,7 @@ public class DockerController {
     @ApiOperation(value="测试docker打包运行是否成功", notes="测试docker打包运行是否成功")
     @RequestMapping(value = "docker",method = RequestMethod.GET)
     @ResponseBody
-    public String dockerTest(@ApiParam(value = "用户名称") String name){
+    public String dockerTest(@ApiParam(value = "用户名称") @RequestParam  String name){
         return name+"：创建docker容器并且运行SpringBoot的jar成功。";
     }
 
@@ -36,7 +37,7 @@ public class DockerController {
     @ApiOperation(value="restful中post风格", notes="restful中post风格")
     @RequestMapping(value = "docker",method = RequestMethod.POST)
     @ResponseBody
-    public String saveTest(@ApiParam(value = "用户名称") String name){
+    public String saveTest(@ApiParam(value = "用户名称")@RequestParam String name){
         return name+"：restful中post风格。";
     }
 
@@ -48,7 +49,7 @@ public class DockerController {
     @ApiOperation(value="restful中put风格", notes="restful中put风格")
     @RequestMapping(value = "name",method = RequestMethod.PUT)
     @ResponseBody
-    public String updateTest(@ApiParam(value = "用户名称") String name){
+    public String updateTest(@ApiParam(value = "用户名称")@RequestParam  String name){
         return name+"：restful中put风格";
     }
 
@@ -60,7 +61,7 @@ public class DockerController {
     @ApiOperation(value="restful中delete风格", notes="restful中delete风格")
     @RequestMapping(value = "name",method = RequestMethod.DELETE)
     @ResponseBody
-    public String deleteTest(@ApiParam(value = "用户名称") String name){
+    public String deleteTest(@ApiParam(value = "用户名称")@RequestParam  String name){
         return name+"：restful中delete风格。";
     }
 }
